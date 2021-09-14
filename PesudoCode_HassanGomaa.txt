@@ -1,0 +1,83 @@
+
+Algorithm MaxRectangleSide(  length[] ,  [] width) 
+{
+         
+          n ← length.length    //O(1) *3*
+        
+        for (  i ← 1 to  n) do
+{ 
+            Vector1.add(length[i])    
+            Vector2.add(width[i])     
+} 
+        //initilization Part
+         Set  sizeOfVector ← Vector1.size()    
+ 
+ 
+       Create Instance Map_Frequenced from class HashMap<Integer,Integer> 
+       Create New  Vector  <Pair< eger, eger>> vec  
+       Set biggestRepeatedNum ← 0    
+         Set  take ← 0   
+
+        //Loops in which all element in the both vectors
+        //will mapped  o HashMap
+        
+        //for each
+        // vector1.lenght 
+        For  ( Each Object var In Vector1)do
+{
+            //check if counter is null then      
+            if (Map_Frequenced.containsKey(var))then   
+            {
+                counter ← Map_Frequenced.get(var)   
+ 
+            }    
+            else
+            {    
+                counter ←0   
+            }
+            Map_Frequenced.put( ( eger) var , counter+1 )    
+            
+        } 
+        for ( Each Object var In Vector2) do 
+      {    
+            //check if counter is null then      
+            if (Map_Frequenced.containsKey(var))then
+                counter ← Map_Frequenced.get(var)   
+            else
+               counter ←0   
+            Map_Frequenced.put( ( eger) var , counter+1 )           
+        } 
+        //fill the Vector with new pairs of inputs values  --> value1:value2
+        for (  i ← 1   to sizeOfVector   )do
+            vec.add(new Pair < eger, eger> (Vector1.get(i),  Vector2.get(i)) )    
+       
+        //for loop from Entry (begain) Up To//to Entry Set of given #Hashmap (end)
+        for (Each   Map.Entry< Integer, Integer> e In Map_Frequenced.entrySet())
+            //Get the Max of current value and biggestRepeatedNum //Default is 0
+            biggestRepeatedNum ← Max(biggestRepeatedNum, e.getValue() )       
+        
+     
+     
+        //loop among whole #Hash Map
+        for (Each Map.Entry  e In Map_Frequenced.entrySet())do
+{
+            //if the given value ←← biggestRepeatedNum
+            if ( e.getValue().equals( biggestRepeatedNum) ) then
+{
+                take ← ( )e.getKey()   
+                break   
+            }
+        }
+        
+
+         Set  numberOf_theAnswer ← 0    
+        for (  i ← 1  to vec.size()   )do
+      {
+           Create Instance of class Pair< Integer, Integer>  p ← vec.get(i)  
+            if (p.getKey() == take OR p.getValue() == take){
+                numberOf_theAnswer++  
+            }   
+        }
+      
+        return numberOf_theAnswer  
+    }
